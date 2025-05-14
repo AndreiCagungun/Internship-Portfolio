@@ -1,0 +1,51 @@
+        <div
+          class="modal fade"
+          id="imageModal"
+          tabindex="-1"
+          aria-labelledby="imageModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                <img
+                  id="modalImage"
+                  src=""
+                  alt=""
+                  class="img-fluid"
+                  style="max-height: 80vh;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script is:inline>
+  function setModalImage(src, alt) {
+    document.getElementById('modalImage').src = src;
+    document.getElementById('modalImage').alt = alt;
+    document.getElementById('imageModalLabel').textContent = alt;
+  }
+
+  // Add a small zoom effect on hover for better UX
+  document.addEventListener('DOMContentLoaded', function() {
+    const zoomableImages = document.querySelectorAll('.zoomable-image');
+    zoomableImages.forEach(img => {
+      img.addEventListener('mouseover', function() {
+        this.style.transition = 'transform 0.3s ease';
+        this.style.transform = 'scale(1.05)';
+      });
+      img.addEventListener('mouseout', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+  });
+</script>
