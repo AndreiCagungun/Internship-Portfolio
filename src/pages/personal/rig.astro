@@ -1,0 +1,206 @@
+---
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import Modal from "../../components/Modal.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>GigaRig Builder</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="/assets/img/logo.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="/assets/css/main.css" rel="stylesheet" />
+
+    <!-- Inline CSS to Fix Project Information Positioning -->
+  </head>
+
+  <body class="portfolio-details-page">
+    <Navbar />
+
+    <main class="main">
+      <!-- Page Title -->
+      <div class="page-title accent-background">
+        <div class="container">
+          <h1>GigaRig Builder</h1>
+          <nav class="breadcrumbs">
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li><a href="/projects">Projects</a></li>
+              <li><a href="/personalProjects">Personal Projects</a></li>
+              <li class="current">GigaRig Builder</li>
+            </ol>
+          </nav>
+        </div>
+      </div><!-- End Page Title -->
+
+      <!-- Portfolio Details Section -->
+      <section id="portfolio-details" class="portfolio-details section">
+        <div class="container" data-aos="fade-up">
+          <div class="portfolio-details-slider swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "navigation": {
+                  "nextEl": ".swiper-button-next",
+                  "prevEl": ".swiper-button-prev"
+                },
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                }
+              }
+            </script>
+            <div class="swiper-wrapper align-items-center">
+              <div class="swiper-slide">
+                <img
+                      src="/assets/img/personalProjectLogos/LouMe/Lou BG.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <div class="row justify-content-between gy-4 mt-4">
+            <div class="col-lg-8" data-aos="fade-up">
+              <div class="portfolio-description">
+                <h2>Overview</h2>
+                <p>
+                  GigaRigBuilder is an intelligent bot designed to help users
+                  build their dream PC based on their budget, preferences, and
+                  performance needs. It simplifies the process of selecting
+                  components by providing tailored recommendations and comparing
+                  the best brands and models available in the market. Here’s how
+                  it works:
+                </p>
+                <br />
+                <br />
+                <div class="row align-items-center">
+                  <div class="col-md-6 d-flex justify-content-center">
+                    <img
+                      src="/assets/img/personalProjectLogos/LouMe/image.jpg"
+                      class="img-fluid zoomable-image"
+                      style="max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
+                      data-bs-toggle="modal"
+                      data-bs-target="#imageModal"
+                      onclick="setModalImage(this.src, this.alt)"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <p>
+                      GigaRigBuilder is a budget-friendly PC-building assistant
+                      that generates compatible component lists (CPU, GPU, RAM,
+                      storage, etc.) tailored to a user’s specified price range,
+                      prioritizing performance-to-cost ratio for maximum value.
+                      It compares brands and models (e.g., AMD vs. NVIDIA, Intel
+                      vs. AMD) based on performance, price, and reviews,
+                      offering insights for specific use cases like gaming,
+                      productivity, or content creation. The tool optimizes
+                      builds based on user needs, ensures component
+                      compatibility, and provides real-time price and
+                      availability updates from trusted retailers. Additionally,
+                      it educates users on the pros and cons of each component
+                      to support informed decision-making.
+                    </p>
+                  </div>
+                </div>
+                <br />
+                <br />
+              </div>
+            </div>
+            <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+              <div class="portfolio-info sticky">
+                <h3>Project information</h3>
+                <ul>
+                  <li><strong>Developer</strong> LouMe</li>
+                  <li>
+                    <strong>Technology</strong> Dify
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- /Portfolio Details Section -->
+        </div>
+
+        <Footer />
+        <Modal />
+
+        <!-- Scroll Top -->
+        <a
+          href="#"
+          id="scroll-top"
+          class="scroll-top d-flex align-items-center justify-content-center"
+          ><i class="bi bi-arrow-up-short"></i></a
+        >
+
+        <!-- Preloader -->
+        <div id="preloader"></div>
+
+        <!-- Vendor JS Files -->
+        <script
+          is:inline
+          src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script is:inline src="/assets/vendor/php-email-form/validate.js"
+        ></script>
+        <script is:inline src="/assets/vendor/aos/aos.js"></script>
+        <script
+          is:inline
+          src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+        <script is:inline src="/assets/vendor/glightbox/js/glightbox.min.js"
+        ></script>
+        <script is:inline src="/assets/vendor/swiper/swiper-bundle.min.js"
+        ></script>
+        <script
+          is:inline
+          src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+        <script
+          is:inline
+          src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+        <!-- Main JS File -->
+        <script is:inline src="/assets/js/main.js"></script>
+      </section>
+    </main></body
+  >
+</html>

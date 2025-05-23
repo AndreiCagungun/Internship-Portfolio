@@ -2,7 +2,6 @@
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import Modal from "../../components/Modal.astro";
-
 ---
 
 <!doctype html>
@@ -51,7 +50,6 @@ import Modal from "../../components/Modal.astro";
   <body class="portfolio-details-page">
     <Navbar />
 
-
     <main class="main">
       <!-- Page Title -->
       <div class="page-title accent-background">
@@ -93,7 +91,10 @@ import Modal from "../../components/Modal.astro";
             </script>
             <div class="swiper-wrapper align-items-center">
               <div class="swiper-slide">
-                <img src="/assets/img/personalProjectLogos/DrewF/image (11).png" alt="" />
+                <img
+                  src="/assets/img/personalProjectLogos/DrewF/image (11).png"
+                  alt=""
+                />
               </div>
             </div>
             <div class="swiper-button-prev"></div>
@@ -142,7 +143,8 @@ import Modal from "../../components/Modal.astro";
 
                 <div class="row align-items-center">
                   <div
-                    class="col-md-6 order-md-2 d-flex justify-content-center">
+                    class="col-md-6 order-md-2 d-flex justify-content-center"
+                  >
                     <img
                       src="/assets/img/personalProjectLogos/DrewF/image (10).png"
                       class="img-fluid zoomable-image"
@@ -161,6 +163,42 @@ import Modal from "../../components/Modal.astro";
                     </p>
                   </div>
                 </div>
+
+                <br />
+                <br />
+                <div class="row align-items-center">
+                  <div class="col-md-6 d-flex justify-content-center">
+                    <img
+                      src="/assets/img/personalProjectLogos/DrewF/image (12).png"
+                      class="img-fluid zoomable-image"
+                      style="max-width: 50%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
+                      data-bs-toggle="modal"
+                      data-bs-target="#imageModal"
+                      onclick="setModalImage(this.src, this.alt)"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <p>
+                      This photo was taken when I was seven, inside the Timezone
+                      arcade at Marquee Mall. I was standing next to my dad,
+                      holding a guitar controller like I actually knew what I
+                      was doing. My mom was the one behind the camera, probably
+                      telling me to smile.
+                    </p>
+                    <p>
+                      Around that time, I had just started getting into music.
+                      Maroon 5 and Damien Rice were the first artists I really
+                      listened to. I didn’t get all the lyrics back then, but
+                      something about the music stuck with me.
+                    </p>
+                    <p>
+                      Since then, music has always been part of my life. It's
+                      something I turn to no matter what I'm feeling. Looking at
+                      this photo now, it reminds me where that connection might
+                      have quietly started.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
@@ -168,7 +206,7 @@ import Modal from "../../components/Modal.astro";
                 <h3>Project information</h3>
                 <ul>
                   <li><strong>Developer</strong> DrewF</li>
-                  <li><strong>Technology</strong> -</li>
+                  <li><strong>Technology</strong> Python<br>HTML<br>CSS<br>JavaScript</li>
                 </ul>
               </div>
             </div>
@@ -177,7 +215,6 @@ import Modal from "../../components/Modal.astro";
 
         <Footer />
         <Modal />
-
 
         <!-- Scroll Top -->
         <a
@@ -214,5 +251,6 @@ import Modal from "../../components/Modal.astro";
         <!-- Main JS File -->
         <script is:inline src="/assets/js/main.js"></script>
       </section>
-    </main></body>
+    </main></body
+  >
 </html>
