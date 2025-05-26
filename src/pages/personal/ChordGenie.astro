@@ -2,7 +2,6 @@
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import Modal from "../../components/Modal.astro";
-
 ---
 
 <!doctype html>
@@ -10,7 +9,7 @@ import Modal from "../../components/Modal.astro";
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Carl Manuel</title>
+    <title>ChordGenie</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -51,18 +50,17 @@ import Modal from "../../components/Modal.astro";
   <body class="portfolio-details-page">
     <Navbar />
 
-
     <main class="main">
       <!-- Page Title -->
       <div class="page-title accent-background">
         <div class="container">
-          <h1>Carl Manuel</h1>
+          <h1>ChordGenie</h1>
           <nav class="breadcrumbs">
             <ol>
               <li><a href="/">Home</a></li>
-              <li><a href="/projects">Projects</a></li>
-              <li><a href="/personalProjects">Personal Projects</a></li>
-              <li class="current">Carl Manuel</li>
+              <li><a href="/Projects">Projects</a></li>
+              <li><a href="/PersonalProjects">Personal Projects</a></li>
+              <li class="current">ChordGenie</li>
             </ol>
           </nav>
         </div>
@@ -94,7 +92,7 @@ import Modal from "../../components/Modal.astro";
             <div class="swiper-wrapper align-items-center">
               <div class="swiper-slide">
                 <img
-                      src="/assets/img/personalProjectLogos/GregS/UI.png"
+                  src="/assets/img/personalProjectLogos/DrewF/image (11).png"
                   alt=""
                 />
               </div>
@@ -109,20 +107,20 @@ import Modal from "../../components/Modal.astro";
               <div class="portfolio-description">
                 <h2>Overview</h2>
                 <p>
-                  The Carl Manuel app is a Streamlit-based chatbot that helps users interact with car manuals
-through natural language. Users can upload a PDF manual, which is processed by extracting
-and chunking the text using LangChain. These chunks are stored in a Chroma vector database
-with OpenAI embeddings, enabling semantic search. On upload, the manual is assigned a
-unique ID for future access, and error-safe persistence ensures smooth first-time storage. Users
-can then ask questions about their manual, and the app retrieves relevant information using a
-RetrievalQA chain with OpenAI’s language model.
+                  A Flask-based web application that creates diatonic chord
+                  progressions for songwriting. It supports user-specified keys
+                  (e.g., C major, G minor) and genres like pop, jazz, and folk.
+                  The UI enables section selection (verse, pre-chorus, chorus,
+                  bridge), displays results in a consistent order, and provides
+                  download links for text and MIDI outputs, ensuring seamless
+                  integration with DAWs.
                 </p>
                 <br />
                 <br />
                 <div class="row align-items-center">
                   <div class="col-md-6 d-flex justify-content-center">
                     <img
-                      src="/assets/img/personalProjectLogos/GregS/Feature1.png"
+                      src="/assets/img/personalProjectLogos/DrewF/image (9).png"
                       class="img-fluid zoomable-image"
                       style="max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
                       data-bs-toggle="modal"
@@ -132,11 +130,11 @@ RetrievalQA chain with OpenAI’s language model.
                   </div>
                   <div class="col-md-6">
                     <p>
-                      After the user uploads a manual, they can start entering their queries into the text field at the
-bottom of the screen. The chatbot classifies the query into 3 different categories: manual_query
-for queries related to the manual, general for car related queries that do not refer to something
-that can be found in the manual, and unrelated which refers to queries unrelated to cars. The
-chatbot then replies with the answer to the question.
+                      The UI showcases generated progressions in Roman numeral
+                      notation (e.g., I-V-vi-IV in C major) for each song
+                      section. It includes playback controls powered by Tone.js
+                      and highlights matching songs (e.g., "I’m Yours" by Jason
+                      Mraz) from a mock database, offering instant inspiration.
                     </p>
                   </div>
                 </div>
@@ -148,7 +146,7 @@ chatbot then replies with the answer to the question.
                     class="col-md-6 order-md-2 d-flex justify-content-center"
                   >
                     <img
-                      src="/assets/img/personalProjectLogos/GregS/Feature2.png"
+                      src="/assets/img/personalProjectLogos/DrewF/image (10).png"
                       class="img-fluid zoomable-image"
                       style="max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
                       data-bs-toggle="modal"
@@ -158,9 +156,46 @@ chatbot then replies with the answer to the question.
                   </div>
                   <div class="col-md-6 order-md-1">
                     <p>
-                      Users can use the dropdown menu to switch between different uploaded manuals. When they
-select a different manual, they can then start sending questions to the chatbot that will base its
-reply on the selected manual.
+                      Users can download MIDI files for each section, with
+                      accurate chord qualities, durations, and velocities for
+                      direct DAW import. The interface provides clear download
+                      links and a preview of the exported file’s structure.
+                    </p>
+                  </div>
+                </div>
+
+                <br />
+                <br />
+                <div class="row align-items-center">
+                  <div class="col-md-6 d-flex justify-content-center">
+                    <img
+                      src="/assets/img/personalProjectLogos/DrewF/image (12).png"
+                      class="img-fluid zoomable-image"
+                      style="max-width: 50%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
+                      data-bs-toggle="modal"
+                      data-bs-target="#imageModal"
+                      onclick="setModalImage(this.src, this.alt)"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <p>
+                      This photo was taken when I was seven, inside the Timezone
+                      arcade at Marquee Mall. I was standing next to my dad,
+                      holding a guitar controller like I actually knew what I
+                      was doing. My mom was the one behind the camera, probably
+                      telling me to smile.
+                    </p>
+                    <p>
+                      Around that time, I had just started getting into music.
+                      Maroon 5 and Damien Rice were the first artists I really
+                      listened to. I didn’t get all the lyrics back then, but
+                      something about the music stuck with me.
+                    </p>
+                    <p>
+                      Since then, music has always been part of my life. It's
+                      something I turn to no matter what I'm feeling. Looking at
+                      this photo now, it reminds me where that connection might
+                      have quietly started.
                     </p>
                   </div>
                 </div>
@@ -170,8 +205,8 @@ reply on the selected manual.
               <div class="portfolio-info sticky">
                 <h3>Project information</h3>
                 <ul>
-                  <li><strong>Developer</strong> KentzC</li>
-                  <li><strong>Technology</strong> Python<br>LangChain<br>Streamlit</li>
+                  <li><strong>Developer</strong> DrewF</li>
+                  <li><strong>Technology</strong> Python<br>HTML<br>CSS<br>JavaScript</li>
                 </ul>
               </div>
             </div>
@@ -216,5 +251,6 @@ reply on the selected manual.
         <!-- Main JS File -->
         <script is:inline src="/assets/js/main.js"></script>
       </section>
-    </main></body>
+    </main></body
+  >
 </html>

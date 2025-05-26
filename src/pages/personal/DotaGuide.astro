@@ -2,7 +2,6 @@
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import Modal from "../../components/Modal.astro";
-
 ---
 
 <!doctype html>
@@ -10,7 +9,7 @@ import Modal from "../../components/Modal.astro";
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Carl Manuel</title>
+    <title>Dota 2 Guidebot</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -51,18 +50,17 @@ import Modal from "../../components/Modal.astro";
   <body class="portfolio-details-page">
     <Navbar />
 
-
     <main class="main">
       <!-- Page Title -->
       <div class="page-title accent-background">
         <div class="container">
-          <h1>Carl Manuel</h1>
+          <h1>Dota 2 Guidebot</h1>
           <nav class="breadcrumbs">
             <ol>
               <li><a href="/">Home</a></li>
-              <li><a href="/projects">Projects</a></li>
-              <li><a href="/personalProjects">Personal Projects</a></li>
-              <li class="current">Carl Manuel</li>
+              <li><a href="/Projects">Projects</a></li>
+              <li><a href="/PersonalProjects">Personal Projects</a></li>
+              <li class="current">Dota 2 Guidebot</li>
             </ol>
           </nav>
         </div>
@@ -94,7 +92,7 @@ import Modal from "../../components/Modal.astro";
             <div class="swiper-wrapper align-items-center">
               <div class="swiper-slide">
                 <img
-                      src="/assets/img/personalProjectLogos/GregS/UI.png"
+                      src="/assets/img/personalProjectLogos/PaoN/dota2.png"
                   alt=""
                 />
               </div>
@@ -109,20 +107,22 @@ import Modal from "../../components/Modal.astro";
               <div class="portfolio-description">
                 <h2>Overview</h2>
                 <p>
-                  The Carl Manuel app is a Streamlit-based chatbot that helps users interact with car manuals
-through natural language. Users can upload a PDF manual, which is processed by extracting
-and chunking the text using LangChain. These chunks are stored in a Chroma vector database
-with OpenAI embeddings, enabling semantic search. On upload, the manual is assigned a
-unique ID for future access, and error-safe persistence ensures smooth first-time storage. Users
-can then ask questions about their manual, and the app retrieves relevant information using a
-RetrievalQA chain with OpenAI’s language model.
+                  I developed a Dota 2 chatbot designed to serve as a
+                  comprehensive guide for players of all skill levels. The
+                  chatbot provides detailed information on heroes, including
+                  their abilities, roles, and laning strategies. It also offers
+                  tips and tricks to improve gameplay, guidance on item builds
+                  for different situations, and overall strategies to enhance
+                  game knowledge. Whether you're a beginner or an experienced
+                  player, the bot acts as an accessible in-game assistant to
+                  help you make better decisions and improve your performance.
                 </p>
                 <br />
                 <br />
                 <div class="row align-items-center">
                   <div class="col-md-6 d-flex justify-content-center">
                     <img
-                      src="/assets/img/personalProjectLogos/GregS/Feature1.png"
+                      src="/assets/img/personalProjectLogos/PaoN/dota1.png"
                       class="img-fluid zoomable-image"
                       style="max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
                       data-bs-toggle="modal"
@@ -132,35 +132,24 @@ RetrievalQA chain with OpenAI’s language model.
                   </div>
                   <div class="col-md-6">
                     <p>
-                      After the user uploads a manual, they can start entering their queries into the text field at the
-bottom of the screen. The chatbot classifies the query into 3 different categories: manual_query
-for queries related to the manual, general for car related queries that do not refer to something
-that can be found in the manual, and unrelated which refers to queries unrelated to cars. The
-chatbot then replies with the answer to the question.
+                      Hero Guides – Detailed information on all Dota 2 heroes,
+                      including roles, skills, strengths, and counters.
                     </p>
-                  </div>
-                </div>
-                <br />
-                <br />
-
-                <div class="row align-items-center">
-                  <div
-                    class="col-md-6 order-md-2 d-flex justify-content-center"
-                  >
-                    <img
-                      src="/assets/img/personalProjectLogos/GregS/Feature2.png"
-                      class="img-fluid zoomable-image"
-                      style="max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
-                      data-bs-toggle="modal"
-                      data-bs-target="#imageModal"
-                      onclick="setModalImage(this.src, this.alt)"
-                    />
-                  </div>
-                  <div class="col-md-6 order-md-1">
                     <p>
-                      Users can use the dropdown menu to switch between different uploaded manuals. When they
-select a different manual, they can then start sending questions to the chatbot that will base its
-reply on the selected manual.
+                      Item Builds – Recommended item builds for different heroes
+                      and game situations.
+                    </p>
+                    <p>
+                      Accessible Anytime – Available 24/7 as a virtual Dota 2
+                      companion and coach.
+                    </p>
+                    <p>
+                      Beginner-Friendly Advice – Simplified explanations for
+                      newer players learning the game.
+                    </p>
+                    <p>
+                      Gameplay Tips & Tricks – Useful tips to improve mechanics,
+                      map awareness, and teamplay.
                     </p>
                   </div>
                 </div>
@@ -170,8 +159,10 @@ reply on the selected manual.
               <div class="portfolio-info sticky">
                 <h3>Project information</h3>
                 <ul>
-                  <li><strong>Developer</strong> KentzC</li>
-                  <li><strong>Technology</strong> Python<br>LangChain<br>Streamlit</li>
+                  <li><strong>Developer</strong> PaoN</li>
+                  <li>
+                    <strong>Technology</strong> Dify
+                  </li>
                 </ul>
               </div>
             </div>
@@ -216,5 +207,6 @@ reply on the selected manual.
         <!-- Main JS File -->
         <script is:inline src="/assets/js/main.js"></script>
       </section>
-    </main></body>
+    </main></body
+  >
 </html>
