@@ -1,4 +1,4 @@
-        <div
+<div
           class="modal fade"
           id="imageModal"
           tabindex="-1"
@@ -8,6 +8,14 @@
           <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
               <div class="modal-header">
+                <div>
+                  <button type="button" class="btn btn-outline-secondary me-2" id="zoomInButton">
+                    <i class="bi bi-zoom-in"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-secondary" id="zoomOutButton">
+                    <i class="bi bi-zoom-out"></i>
+                  </button>
+                </div>
                 <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
                 <button
                   type="button"
@@ -15,13 +23,13 @@
                   data-bs-dismiss="modal"
                   aria-label="Close"></button>
               </div>
-              <div class="modal-body text-center">
+              <div class="modal-body text-center" style="overflow: auto; max-height: 80vh;">
                 <img
                   id="modalImage"
                   src=""
                   alt=""
                   class="img-fluid"
-                  style="max-height: 80vh;"
+                  style=""
                 />
               </div>
             </div>
@@ -29,14 +37,200 @@
         </div>
 
         <script is:inline>
+  let currentScale = 1;
+  const zoomStep = 0.1;
+  let isDragging = false;
+  let startX, startY;
+  let initialImageLeft, initialImageTop;
+
   function setModalImage(src, alt) {
-    document.getElementById('modalImage').src = src;
-    document.getElementById('modalImage').alt = alt;
-    document.getElementById('imageModalLabel').textContent = alt;
+    const imgElement = document.getElementById('modalImage');
+    if (imgElement) {
+      imgElement.src = src;
+      imgElement.alt = alt;
+      document.getElementById('imageModalLabel').textContent = alt;
+      // Reset scale and position when new image is set
+      currentScale = 1;
+      imgElement.style.transform = 'scale(1)';
+      imgElement.style.left = '0px'; // Reset horizontal position
+      imgElement.style.top = '0px';  // Reset vertical position
+      imgElement.style.cursor = 'grab'; // Reset cursor
+    }
   }
 
-  // Add a small zoom effect on hover for better UX
   document.addEventListener('DOMContentLoaded', function() {
+    const zoomInButton = document.getElementById('zoomInButton');
+    const zoomOutButton = document.getElementById('zoomOutButton');
+    const modalImage = document.getElementById('modalImage');
+
+    if (modalImage) {
+      modalImage.style.transformOrigin = 'center'; // Changed from 'top left'
+      modalImage.style.position = 'relative'; // Enable positioning
+      modalImage.style.cursor = 'grab';       // Initial cursor
+
+      // Mouse Dragging
+      modalImage.addEventListener('mousedown', function(e) {
+        if (currentScale <= 1) {
+          modalImage.style.cursor = 'grab'; // Ensure cursor is grab if not draggable
+          return; // Only drag if zoomed in
+        }
+        e.preventDefault();
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        initialImageLeft = parseFloat(modalImage.style.left || 0);
+        initialImageTop = parseFloat(modalImage.style.top || 0);
+        modalImage.style.cursor = 'grabbing';
+      });
+
+      document.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+
+        if (currentScale <= 1) { // If zoomed out during a drag, stop.
+          isDragging = false;
+          modalImage.style.cursor = 'grab';
+          return;
+        }
+        e.preventDefault();
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+
+        let newLeft = initialImageLeft + dx;
+        let newTop = initialImageTop + dy;
+
+        const modalBody = modalImage.parentElement;
+        const modalBodyWidth = modalBody.clientWidth;
+        const modalBodyHeight = modalBody.clientHeight;
+        
+        const unscaledImageWidth = modalImage.offsetWidth;
+        const unscaledImageHeight = modalImage.offsetHeight;
+        const scaledImageWidth = unscaledImageWidth * currentScale;
+        const scaledImageHeight = unscaledImageHeight * currentScale;
+
+        // Updated boundary logic for transform-origin: center
+        if (scaledImageWidth <= modalBodyWidth) {
+          newLeft = 0; // Keep centered if image fits
+        } else {
+          const horizontalBound = (scaledImageWidth - modalBodyWidth) / 2;
+          newLeft = Math.max(-horizontalBound, Math.min(newLeft, horizontalBound));
+        }
+
+        if (scaledImageHeight <= modalBodyHeight) {
+          newTop = 0; // Keep centered if image fits
+        } else {
+          const verticalBound = (scaledImageHeight - modalBodyHeight) / 2;
+          newTop = Math.max(-verticalBound, Math.min(newTop, verticalBound));
+        }
+
+        modalImage.style.left = newLeft + 'px';
+        modalImage.style.top = newTop + 'px';
+      });
+
+      document.addEventListener('mouseup', function() {
+        if (isDragging) {
+          isDragging = false;
+          modalImage.style.cursor = (currentScale > 1) ? 'grab' : 'default'; // Reset cursor based on zoom
+        }
+      });
+      
+      modalImage.addEventListener('mouseleave', function() { // Handle mouse leaving modal while dragging
+        if (isDragging) {
+          isDragging = false;
+          modalImage.style.cursor = (currentScale > 1) ? 'grab' : 'default';
+        }
+      });
+
+      // Touch events for mobile
+      modalImage.addEventListener('touchstart', function(e) {
+        if (currentScale <= 1) return; // Only drag if zoomed in
+        if (e.touches.length === 1) {
+          // e.preventDefault(); // Consider if preventDefault is needed here or if it breaks scroll on touch devices
+          isDragging = true;
+          const touch = e.touches[0];
+          startX = touch.clientX;
+          startY = touch.clientY;
+          initialImageLeft = parseFloat(modalImage.style.left || 0);
+          initialImageTop = parseFloat(modalImage.style.top || 0);
+        }
+      }, { passive: false });
+
+      document.addEventListener('touchmove', function(e) {
+        if (!isDragging || !e.touches || e.touches.length !== 1) return;
+
+        if (currentScale <= 1) { // If zoomed out during a drag, stop.
+          isDragging = false;
+          return;
+        }
+        e.preventDefault(); // Keep preventDefault here for touchmove to prevent scrolling while dragging
+        const touch = e.touches[0];
+        const dx = touch.clientX - startX;
+        const dy = touch.clientY - startY;
+
+        let newLeft = initialImageLeft + dx;
+        let newTop = initialImageTop + dy;
+
+        const modalBody = modalImage.parentElement;
+        const modalBodyWidth = modalBody.clientWidth;
+        const modalBodyHeight = modalBody.clientHeight;
+
+        const unscaledImageWidth = modalImage.offsetWidth;
+        const unscaledImageHeight = modalImage.offsetHeight;
+        const scaledImageWidth = unscaledImageWidth * currentScale;
+        const scaledImageHeight = unscaledImageHeight * currentScale;
+
+        // Updated boundary logic for transform-origin: center
+        if (scaledImageWidth <= modalBodyWidth) {
+          newLeft = 0; // Keep centered if image fits
+        } else {
+          const horizontalBound = (scaledImageWidth - modalBodyWidth) / 2;
+          newLeft = Math.max(-horizontalBound, Math.min(newLeft, horizontalBound));
+        }
+
+        if (scaledImageHeight <= modalBodyHeight) {
+          newTop = 0; // Keep centered if image fits
+        } else {
+          const verticalBound = (scaledImageHeight - modalBodyHeight) / 2;
+          newTop = Math.max(-verticalBound, Math.min(newTop, verticalBound));
+        }
+        
+        modalImage.style.left = newLeft + 'px';
+        modalImage.style.top = newTop + 'px';
+      }, { passive: false });
+
+      document.addEventListener('touchend', function() {
+        if (isDragging) {
+          isDragging = false;
+        }
+      });
+    }
+
+    if (zoomInButton) {
+      zoomInButton.addEventListener('click', function() {
+        currentScale += zoomStep;
+        modalImage.style.transform = `scale(${currentScale})`;
+      });
+    }
+
+    if (zoomOutButton) {
+      zoomOutButton.addEventListener('click', function() {
+        if (currentScale > 1) { // Only allow zooming out if currently zoomed in
+          let newScale = currentScale - zoomStep;
+          
+          if (newScale <= 1) { // If the next step would make it original size or smaller
+            currentScale = 1;
+            modalImage.style.transform = 'scale(1)';
+            modalImage.style.left = '0px'; // Reset horizontal position
+            modalImage.style.top = '0px';  // Reset vertical position
+            modalImage.style.cursor = 'grab'; // Reset cursor
+          } else {
+            currentScale = newScale;
+            modalImage.style.transform = `scale(${currentScale})`;
+          }
+        }
+      });
+    }
+
+    // Add a small zoom effect on hover for better UX
     const zoomableImages = document.querySelectorAll('.zoomable-image');
     zoomableImages.forEach(img => {
       img.addEventListener('mouseover', function() {

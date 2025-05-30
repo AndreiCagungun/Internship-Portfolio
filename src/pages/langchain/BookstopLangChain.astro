@@ -97,7 +97,10 @@ import Modal from "../../components/Modal.astro";
             </script>
             <div class="swiper-wrapper align-items-center">
               <div class="swiper-slide">
-                <img src="/assets/img/langchain/bookstop/booklangbg.png" alt="" />
+                <img
+                  src="/assets/img/langchain/bookstop/booklangbg.png"
+                  alt=""
+                />
               </div>
             </div>
             <div class="swiper-button-prev"></div>
@@ -110,17 +113,19 @@ import Modal from "../../components/Modal.astro";
               <div class="portfolio-description">
                 <h2>Overview</h2>
                 <p>
-                  The Company Profile Chatbot, built using the Dify platform, is
-                  designed to provide users with comprehensive and engaging
-                  information about [Your Company Name]. It serves as an
-                  interactive tool to showcase the company's history, mission,
-                  services, achievements, and contact details, enhancing user
-                  experience and brand visibility.
+                  The Cloudstaff Library Assistant is an AI-powered chatbot
+                  application designed to help Cloudstaff employees interact
+                  with the company’s library resources. Built using Python and
+                  LangChain, the assistant leverages natural language
+                  understanding to provide real-time responses related to books
+                  and library services. The application enhances access to book
+                  recommendations, availability checks, and general library
+                  discussions.
                 </p>
                 <div class="row align-items-center">
                   <div class="col-md-6 d-flex justify-content-center">
                     <img
-                      src="/assets/img/companypfp1.png"
+                      src="/assets/img/langchain/bookstop/bookstoplang.png"
                       class="img-fluid zoomable-image"
                       style="max-width: 80%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
                       data-bs-toggle="modal"
@@ -129,24 +134,33 @@ import Modal from "../../components/Modal.astro";
                     />
                   </div>
                   <div class="col-md-6">
-                    <h3>Search</h3>
+                    <h3>Email Authentication UI</h3>
                     <p>
-                      The search feature allows users to quickly find and
-                      request information about a specific company, such as
-                      Cloudstaff, by simply entering the company name. It acts
-                      as the entry point for engaging with the chatbot, enabling
-                      it to identify the subject of interest and tailor
-                      responses accordingly.
+                      Includes fields to enter a Cloudstaff email and password.
+                      A "Verify Email" button is added for authenticating users
+                      before accessing the chatbot. The Firebase authentication
+                      restricts access to users with @cloudstaff.com emails.
+                    </p>
+                    <h3>Book Availability Check</h3>
+                    <p>
+                      Users can instantly check if a specific book is available
+                      in the Cloudstaff library's collection. The chatbot uses
+                      vector-based search to match book titles, even if the
+                      input has slight variations or typos (e.g., "Atomic
+                      Habitz" → "Atomic Habits"). It pulls from a structured
+                      library database or embedded documents for precise
+                      responses.
                     </p>
                   </div>
                 </div>
-
+                <br>
+                <br>
                 <div class="row align-items-center">
                   <div
                     class="col-md-6 order-md-2 d-flex justify-content-center"
                   >
                     <img
-                      src="/assets/img/companypfp2.png"
+                      src="/assets/img/langchain/bookstop/bookstoplang2.png"
                       class="img-fluid zoomable-image"
                       style="max-width: 80%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
                       data-bs-toggle="modal"
@@ -155,17 +169,61 @@ import Modal from "../../components/Modal.astro";
                     />
                   </div>
                   <div class="col-md-6 order-md-1">
-                    <h3>Basic or Detailed</h3>
+                    <h3>Book Discussions</h3>
                     <p>
-                      The Basic Company Profile offers a concise overview of a
-                      company, ideal for users seeking quick, essential
-                      information without delving into extensive details.
+                      The assistant can engage in book-related conversations
+                      such as: Comparing two books Discussing an author's
+                      writing style Talking about literary themes or book
+                      endings This feature enhances user engagement and
+                      simulates a more human-like interaction—ideal for book
+                      lovers and discussion-oriented users.
                     </p>
+                    <h3>Intelligent Query Handling</h3>
                     <p>
-                      The Detailed Company Profile provides an in-depth
-                      exploration of a company's history, mission, services, and
-                      achievements, catering to users who desire comprehensive
-                      insights and a deeper understanding of the organization.
+                      The chatbot uses an LLM-powered classifier (via LangChain)
+                      to determine whether a user query is: Book-related (e.g.,
+                      recommendations, availability, discussions)
+                      General-purpose (e.g., “What’s the weather?” or “Tell me a
+                      joke”) Non-library queries can be politely declined or
+                      redirected, depending on the intended app behavior,
+                      helping the assistant stay focused on its core use case.
+                    </p>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <div class="row align-items-center">
+                  <div class="col-md-6 d-flex justify-content-center">
+                    <img
+                      src="/assets/img/langchain/bookstop/bookstoplang1.png"
+                      class="img-fluid zoomable-image"
+                      style="max-width: 80%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
+                      data-bs-toggle="modal"
+                      data-bs-target="#imageModal"
+                      onclick="setModalImage(this.src, this.alt)"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <h3>Vector Database for Efficient Retrieval</h3>
+                    <p>
+                      The application integrates a vector database (e.g.,
+                      Chroma, FAISS, or Weaviate) to store semantic embeddings
+                      of book descriptions and metadata. This enables: Semantic
+                      search: Matching queries with similar meaning, not just
+                      exact keywords Scalable performance: Fast and accurate
+                      retrieval even with a growing book collection This
+                      architecture improves the relevance and speed of query
+                      results dramatically.
+                    </p>
+                    <h3>User-Friendly Interface with Gradio</h3>
+                    <p>
+                      Built using Gradio, the app features a responsive and
+                      accessible UI: Easy-to-use login section with
+                      email/password Interactive chatbot window Suggested quick
+                      prompts to help users get started Visually appealing
+                      layout with branding aligned to Cloudstaff This makes the
+                      app accessible to non-technical users while providing a
+                      sleek, professional experience.
                     </p>
                   </div>
                 </div>
@@ -175,14 +233,10 @@ import Modal from "../../components/Modal.astro";
               <div class="portfolio-info sticky">
                 <h3>Project Information</h3>
                 <ul>
-                  <li><strong>Developer</strong> PaulYu</li>
-                  <li><strong>Technology</strong> Dify.ai</li>
+                  <li><strong>Developer</strong> LangChain Team</li>
                   <li>
-                    <a
-                      href="/docs/Company Profile Handover Document.pdf"
-                      class="btn-visit align-self-start"
-                      download>Handover Document</a
-                    >
+                    <strong>Technology</strong> LangChain<br />OpenAI & Google
+                    Generative AI<br />ChromaDB<br />Gradio<br />Pandas & NumPy
                   </li>
                 </ul>
               </div>

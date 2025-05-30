@@ -1,0 +1,383 @@
+---
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import Modal from "../../components/Modal.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Insight</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="/assets/img/logo.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="/assets/css/main.css" rel="stylesheet" />
+
+    <!-- Inline CSS to Fix Project Information Positioning -->
+  </head>
+
+  <body class="portfolio-details-page">
+    <Navbar />
+
+    <main class="main">
+      <!-- Page Title -->
+      <div class="page-title accent-background">
+        <div class="container">
+          <h1>AI-Powered Data Insights</h1>
+          <nav class="breadcrumbs">
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li><a href="/Projects">Projects</a></li>
+              <li><a href="/PersonalProjects">Personal Projects</a></li>
+              <li class="current">Insights</li>
+            </ol>
+          </nav>
+        </div>
+      </div><!-- End Page Title -->
+
+      <!-- Portfolio Details Section -->
+      <section id="portfolio-details" class="portfolio-details section">
+        <div class="container" data-aos="fade-up">
+          <div class="portfolio-details-slider swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "navigation": {
+                  "nextEl": ".swiper-button-next",
+                  "prevEl": ".swiper-button-prev"
+                },
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                }
+              }
+            </script>
+            <div class="swiper-wrapper align-items-center">
+              <div class="swiper-slide">
+                <img
+                  src="/assets/img/personalProjectLogos/YelMu/bg.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <div class="row justify-content-between gy-4 mt-4">
+            <div class="col-lg-8" data-aos="fade-up">
+              <div class="portfolio-description">
+                <h2>Overview</h2>
+                <p>
+                  This web application allows users to upload a CSV file and
+                  automatically generates a comprehensive analysis of the
+                  dataset. It leverages AI to provide summaries, detect
+                  patterns, recommend target columns, and highlight key
+                  metrics—enabling users to derive insights with minimal manual
+                  effort. The application provides a seamless experience for
+                  working with CSV files, starting with a user-friendly upload
+                  interface that supports both drag-and-drop and manual file
+                  selection. Once a .csv file is uploaded, it displays the file
+                  name, confirms the upload, and presents a quick summary of the
+                  total rows and columns. Beyond uploading, the interface
+                  enhances data analysis through a tabbed navigation system,
+                  offering multiple perspectives on the dataset. The "Data
+                  Summary" tab delivers a high-level overview, detailing the
+                  dataset’s dimensions, file size, and any missing data. The
+                  "Data Exploration" tab empowers users to interactively filter,
+                  sort, and visualize the data, while the "AI Insights" tab
+                  harnesses AI models to provide trend analysis, feature
+                  importance, or predictions. For data refinement, the "Data
+                  Cleaning" tab suggests automatic fixes for issues like missing
+                  values, outliers, or formatting inconsistencies. Lastly, the
+                  "Data Engineering Assistant" tab caters to advanced users by
+                  enabling feature transformation, encoding, or schema editing,
+                  ensuring the data is fully prepared for further use.
+                </p>
+
+                <div class="row align-items-center">
+                  <div class="col-md-6 d-flex justify-content-center">
+                    <img
+                      src="/assets/img/personalProjectLogos/YelMu/1.png"
+                      class="img-fluid zoomable-image"
+                      style="max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer; object-fit: contain;"
+                      data-bs-toggle="modal"
+                      data-bs-target="#imageModal"
+                      onclick="setModalImage(this.src, this.alt)"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <h3>Data Summary</h3>
+                    <p>
+                      The Data Summary section provides a comprehensive overview
+                      of the uploaded dataset, starting with a concise preview
+                      showcasing the first few rows and columns for quick
+                      insight into the data structure. It includes detailed
+                      dataset statistics, such as the total number of rows and
+                      columns, dataset size, and the count of missing values,
+                      enabling users to grasp the dataset’s scope and quality.
+                      Columns are categorized into types—categorical for
+                      distinct groups, datetime for date and time data, and
+                      numeric for measurable quantities suitable for
+                      mathematical analysis. An AI-generated summary offers a
+                      human-readable description of the dataset’s content, time
+                      frame (if relevant), and column classifications. The
+                      system also identifies potential target columns for
+                      machine learning tasks, recommending suitable columns for
+                      predictive modeling. Key metrics for numeric columns,
+                      including mean, median, minimum, and maximum values, are
+                      displayed to highlight data distributions. Additionally,
+                      the system conducts anomaly detection, reporting no
+                      significant anomalies in this case, and identifies
+                      patterns, such as increased activity in months like
+                      January and November, to reveal trends or cyclic
+                      behaviors.
+                    </p>
+                  </div>
+                </div>
+                <br />
+                <br />
+
+                <div class="row align-items-center">
+                  <div
+                    class="col-md-6 order-md-2 d-flex justify-content-center"
+                  >
+                    <img
+                      src="/assets/img/personalProjectLogos/YelMu/2.png"
+                      class="img-fluid zoomable-image"
+                      style="max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
+                      data-bs-toggle="modal"
+                      data-bs-target="#imageModal"
+                      onclick="setModalImage(this.src, this.alt)"
+                    />
+                  </div>
+                  <div class="col-md-6 order-md-1">
+                    <h3>Data Exploration</h3>
+
+                    <p>
+                      The Data Exploration section empowers users to dive deeper
+                      into their dataset through an interactive interface,
+                      allowing selection of any two columns to assign to the X
+                      and Y axes for customized analysis. An optional "Color By"
+                      dropdown enables visual differentiation using a
+                      categorical variable, enhancing data interpretation. Users
+                      can choose from a variety of chart types—such as scatter
+                      plots, bar charts, line charts, box plots, histograms, and
+                      heatmaps—tailoring visualizations to the data type and
+                      analytical goals. These visualizations are available in
+                      both interactive and static formats, making it easier to
+                      explore and interpret data patterns. The platform also
+                      calculates the correlation coefficient between the
+                      selected columns and provides plain-language explanations,
+                      ensuring users, regardless of expertise, can understand
+                      the relationships and insights derived from their data.
+                    </p>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <div class="row align-items-center">
+                  <div class="col-md-6 d-flex justify-content-center">
+                    <img
+                      src="/assets/img/personalProjectLogos/YelMu/3.png"
+                      class="img-fluid zoomable-image"
+                      style="max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
+                      data-bs-toggle="modal"
+                      data-bs-target="#imageModal"
+                      onclick="setModalImage(this.src, this.alt)"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <h3>Data Insights</h3>
+
+                    <p>
+                      The Data Insights Panel leverages AI to deliver advanced
+                      analytical capabilities, starting with a target variable
+                      selection dropdown that allows users to focus analysis on
+                      a specific column. A feature importance visualization
+                      ranks the top features using Mutual Information, helping
+                      users identify the most influential variables in their
+                      dataset. For a comprehensive perspective, a feature
+                      comparison table presents metrics derived from both Mutual
+                      Information and Random Forest methods, offering a clear
+                      view of feature relevance. The panel generates AI-driven
+                      insights in three categories: descriptive summaries that
+                      outline data patterns, predictive insights that identify
+                      top predictors along with their explanatory power, and
+                      actionable recommendations based on these findings,
+                      enabling users to make informed decisions or refine their
+                      analytical approach.
+                    </p>
+                  </div>
+                </div>
+                <br />
+                <br />
+
+                <div class="row align-items-center">
+                  <div
+                    class="col-md-6 order-md-2 d-flex justify-content-center"
+                  >
+                    <img
+                      src="/assets/img/personalProjectLogos/YelMu/4.png"
+                      class="img-fluid zoomable-image"
+                      style="max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
+                      data-bs-toggle="modal"
+                      data-bs-target="#imageModal"
+                      onclick="setModalImage(this.src, this.alt)"
+                    />
+                  </div>
+                  <div class="col-md-6 order-md-1">
+                    <h3>Data Cleaning</h3>
+
+                    <p>
+                      The Data Cleaning Panel ensures dataset quality through a
+                      suite of robust features. It begins by scanning for and
+                      reporting missing values, allowing users to address gaps
+                      in the data. Outlier detection is performed on numeric
+                      columns using box plots and the Interquartile Range (IQR)
+                      method, with results clearly presented for easy
+                      interpretation. To maintain data integrity, the panel
+                      checks for duplicate rows and reports any findings,
+                      helping users avoid redundancy. It supports both automatic
+                      and custom data type conversions to ensure consistency
+                      across the dataset. A cleaned data preview showcases a
+                      sample of the dataset post-cleaning, while a cleaning
+                      summary details the original and cleaned row counts, along
+                      with any changes made. Users can conveniently download the
+                      cleaned dataset as a CSV file for further use.
+                    </p>
+                  </div>
+                </div>
+                <br />
+                <br />
+
+                <div class="row align-items-center">
+                  <div class="col-md-6 d-flex justify-content-center">
+                    <img
+                      src="/assets/img/personalProjectLogos/YelMu/5.png"
+                      class="img-fluid zoomable-image"
+                      style="max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
+                      data-bs-toggle="modal"
+                      data-bs-target="#imageModal"
+                      onclick="setModalImage(this.src, this.alt)"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <h3>Data Engineering Assistan</h3>
+
+                    <p>
+                      The Data Engineering Assistant, powered by Google Gemini
+                      1.5 Flash, transforms user queries into tailored machine
+                      learning recommendations, streamlining the data
+                      preparation process. Users specify their prediction
+                      objective and select a modeling approach—such as
+                      prioritizing performance, accuracy, speed, or
+                      interpretability—and initiate the process with a “Get
+                      Recommendations” button. The AI identifies the prediction
+                      task and suggests suitable models, outlining their
+                      strengths and trade-offs to guide decision-making. It also
+                      provides preprocessing tips, including feature
+                      engineering, temporal extraction, and encoding techniques,
+                      tailored to the dataset’s characteristics. Recommended
+                      evaluation metrics and data splitting strategies are
+                      offered to optimize model performance. Users can save
+                      these recommendations for quick reference, enhancing
+                      efficiency in future data engineering tasks.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+              <div class="portfolio-info sticky">
+                <h3>Project information</h3>
+                <ul>
+                  <li><strong>Developer</strong> YelMu</li>
+                  <li>
+                    <strong>Technology</strong> HTML<br />JavaScript<br />LangChain<br />Google Gemini 1.5 Flash<br />Pandas<br />Python
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- /Portfolio Details Section -->
+        </div>
+
+        <Footer />
+        <Modal />
+
+        <!-- Scroll Top -->
+        <a
+          href="#"
+          id="scroll-top"
+          class="scroll-top d-flex align-items-center justify-content-center"
+          ><i class="bi bi-arrow-up-short"></i></a
+        >
+
+        <!-- Preloader -->
+        <div id="preloader"></div>
+
+        <!-- Vendor JS Files -->
+        <script
+          is:inline
+          src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script is:inline src="/assets/vendor/php-email-form/validate.js"
+        ></script>
+        <script is:inline src="/assets/vendor/aos/aos.js"></script>
+        <script
+          is:inline
+          src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+        <script is:inline src="/assets/vendor/glightbox/js/glightbox.min.js"
+        ></script>
+        <script is:inline src="/assets/vendor/swiper/swiper-bundle.min.js"
+        ></script>
+        <script
+          is:inline
+          src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+        <script
+          is:inline
+          src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+        <!-- Main JS File -->
+        <script is:inline src="/assets/js/main.js"></script>
+      </section>
+    </main></body
+  >
+</html>

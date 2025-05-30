@@ -73,7 +73,7 @@ import Modal from "../../components/Modal.astro";
       </div><!-- End Page Title -->
 
       <!-- Portfolio Details Section -->
-      <!-- <section id="portfolio-details" class="portfolio-details section">
+      <section id="portfolio-details" class="portfolio-details section">
         <div class="container" data-aos="fade-up">
           <div class="portfolio-details-slider swiper init-swiper">
             <script type="application/json" class="swiper-config">
@@ -97,7 +97,7 @@ import Modal from "../../components/Modal.astro";
             </script>
             <div class="swiper-wrapper align-items-center">
               <div class="swiper-slide">
-                <img src="/assets/img/cpfpbg.png" alt="" />
+                <img src="/assets/img/langchain/mystaff/mystaffbg.png" alt="" />
               </div>
             </div>
             <div class="swiper-button-prev"></div>
@@ -110,17 +110,22 @@ import Modal from "../../components/Modal.astro";
               <div class="portfolio-description">
                 <h2>Overview</h2>
                 <p>
-                  The Company Profile Chatbot, built using the Dify platform, is
-                  designed to provide users with comprehensive and engaging
-                  information about [Your Company Name]. It serves as an
-                  interactive tool to showcase the company's history, mission,
-                  services, achievements, and contact details, enhancing user
-                  experience and brand visibility.
+                  MyStaff is an intelligent chatbot system built using LangChain
+                  and FastAPI, designed to streamline staff and task management.
+                  It leverages Retrieval-Augmented Generation (RAG), SQL
+                  databases, and structured query classification to respond to
+                  HR-related queries with real-time, reliable data. The system
+                  is capable of answering questions about employee tasks,
+                  productivity, burnout risk, and holiday schedules, while
+                  maintaining strict data integrity by avoiding hallucinated
+                  responses. This LangChain version serves as a more robust,
+                  enterprise-level evolution of the original chatbot
+                  architecture.
                 </p>
                 <div class="row align-items-center">
                   <div class="col-md-6 d-flex justify-content-center">
                     <img
-                      src="/assets/img/companypfp1.png"
+                      src="/assets/img/langchain/mystaff/mystaff1.png"
                       class="img-fluid zoomable-image"
                       style="max-width: 80%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
                       data-bs-toggle="modal"
@@ -129,24 +134,30 @@ import Modal from "../../components/Modal.astro";
                     />
                   </div>
                   <div class="col-md-6">
-                    <h3>Search</h3>
+                    <h3>Login page</h3>
                     <p>
-                      The search feature allows users to quickly find and
-                      request information about a specific company, such as
-                      Cloudstaff, by simply entering the company name. It acts
-                      as the entry point for engaging with the chatbot, enabling
-                      it to identify the subject of interest and tailor
-                      responses accordingly.
+                      Built with FastAPI and Google OAuth2, the login page
+                      enables secure, passwordless access. Upon sign-in,
+                      Firebase verifies the user’s email and Streamlit registers
+                      the session, assigning a client code for personalized
+                      chatbot behavior.
+                    </p>
+                    <h3>Backend authentication</h3>
+                    <p>
+                      Login and user validation are handled via FastAPI
+                      endpoints (/login/, /add_user/) connected to a MongoDB
+                      user database for secure access control.
                     </p>
                   </div>
                 </div>
-
+                <br />
+                <br />
                 <div class="row align-items-center">
                   <div
                     class="col-md-6 order-md-2 d-flex justify-content-center"
                   >
                     <img
-                      src="/assets/img/companypfp2.png"
+                      src="/assets/img/langchain/mystaff/mystaff2.png"
                       class="img-fluid zoomable-image"
                       style="max-width: 80%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
                       data-bs-toggle="modal"
@@ -155,17 +166,35 @@ import Modal from "../../components/Modal.astro";
                     />
                   </div>
                   <div class="col-md-6 order-md-1">
-                    <h3>Basic or Detailed</h3>
+                    <h3>Dashboard and chatbot UI</h3>
                     <p>
-                      The Basic Company Profile offers a concise overview of a
-                      company, ideal for users seeking quick, essential
-                      information without delving into extensive details.
+                      After login, users land on a dashboard with a sidebar
+                      showing email, client code, and model selector (e.g.,
+                      GPT-4o, Gemini). The central area hosts the chatbot
+                      interface and a logout option.
                     </p>
+                  </div>
+                </div>
+                <br />
+                <br />
+                <div class="row align-items-center">
+                  <div class="col-md-6 d-flex justify-content-center">
+                    <img
+                      src="/assets/img/langchain/mystaff/mystaff4.png"
+                      class="img-fluid zoomable-image"
+                      style="max-width: 80%; height: auto; margin-top: 20px; margin-bottom: 20px; cursor: pointer;"
+                      data-bs-toggle="modal"
+                      data-bs-target="#imageModal"
+                      onclick="setModalImage(this.src, this.alt)"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <h3>Chatbot Functionality</h3>
                     <p>
-                      The Detailed Company Profile provides an in-depth
-                      exploration of a company's history, mission, services, and
-                      achievements, catering to users who desire comprehensive
-                      insights and a deeper understanding of the organization.
+                      User queries are auto-classified into general, context, or
+                      burnout-related types. LangChain routes each to the proper
+                      SQL or CSV data pipeline. Conversations are stored in
+                      MongoDB for short-term memory and better continuity.
                     </p>
                   </div>
                 </div>
@@ -175,21 +204,22 @@ import Modal from "../../components/Modal.astro";
               <div class="portfolio-info sticky">
                 <h3>Project Information</h3>
                 <ul>
-                  <li><strong>Developer</strong> PaulYu</li>
-                  <li><strong>Technology</strong> Dify.ai</li>
+                  <li><strong>Developer</strong> LangChain Team</li>
                   <li>
-                    <a
-                      href="/docs/Company Profile Handover Document.pdf"
-                      class="btn-visit align-self-start"
-                      download>Handover Document</a
-                    >
+                    <strong>Technology</strong><br />FastAPI<br
+                    />ChromaDB<br />Firebase Google OAuth Sign In
+                    <br />RAG<br />SQL Alchemy
+                    <br />SQL Agent
+                    <br />CSV Agent<br />CSS
+                    <br />Pandas<br />Streamlit<br />OpenAI Embeddings
+                    <br />MongoDB <br />Pydantic<br />Httpx
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
       <!-- /Portfolio Details Section -->
     </main>
 
